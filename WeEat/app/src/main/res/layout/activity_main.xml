@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alex.weeat.MainActivity"
+    android:background="@drawable/bg"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a1000000">
+
+        <ImageButton
+            android:id="@+id/param"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/ic_menu_manage"
+            android:backgroundTint="#00ffffff"/>
+
+        <TextView
+            android:id="@+id/bienvenuetxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:text="Bienvenue"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+            android:typeface="normal" />
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bienvenuetxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:text="Que voulez-vous faire aujourd'hui?"
+            android:textColor="#ffcfcfcf"
+            android:textSize="20sp" />
+
+
+        <Button
+            android:id="@+id/ajouter"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/message"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:text="Ajouter un Restaurant" />
+
+        <Button
+            android:id="@+id/supp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ajouter"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Supprimer un Restaurant" />
+
+        <Button
+            android:id="@+id/modif"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/supp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Modifier un Restaurant" />
+
+        <Button
+            android:id="@+id/eval"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modif"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Ajouter une évaluation" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
