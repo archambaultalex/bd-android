@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alex.weeat.empty_db"
+    android:background="@drawable/bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a1000000">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5px"
+            android:layout_toStartOf="@+id/titre"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/arrow_back_white_192x192"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/titre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="50dp"
+            android:text="Parametres"
+            android:textColor="#ffffffff"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/transbut"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titre"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button"
+            android:text="Transferer"
+            android:textColor="#ffffffff" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/transbut"
+            android:layout_marginTop="35dp"
+            android:background="#a1ffffff">
+
+            <TableLayout
+                android:id="@+id/tableResto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </TableLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</android.widget.RelativeLayout>

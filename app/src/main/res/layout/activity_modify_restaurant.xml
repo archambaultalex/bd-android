@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alex.weeat.Modify_restaurant"
+    android:background="@drawable/bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a1000000"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5px"
+            android:layout_toStartOf="@+id/titre"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/arrow_back_white_192x192" />
+
+        <TextView
+            android:id="@+id/titre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="50dp"
+            android:text="Modifier un restaurant"
+            android:textColor="#ffffffff"
+            android:textSize="30sp" />
+
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titre"
+            android:gravity="center"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/qBouffe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Nourriture"
+            android:textColor="#ffffffff"
+            android:textSize="18sp" />
+
+        <RatingBar
+            android:id="@+id/QualiteBouffe"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/qBouffe"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#ffffffff"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Qualité de la nourriture"
+            android:inputType="textPersonName"
+            android:numStars="5"
+            android:textColor="#ffffffff"
+            android:textColorHint="#ffffffff"
+            android:theme="@style/RatingBar" />
+
+        <TextView
+            android:id="@+id/qService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/QualiteBouffe"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Service"
+            android:textColor="#ffffffff"
+            android:textSize="18sp" />
+
+        <RatingBar
+            android:id="@+id/QualiteService"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/qService"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#ffffffff"
+            android:gravity="center"
+            android:hint="Qualité du Service"
+            android:numStars="5"
+            android:rating="0"
+            android:textColor="#ffffffff"
+            android:textColorHint="#ffffffff"
+            android:theme="@style/RatingBar"/>
+
+        <EditText
+            android:id="@+id/PrixMoyen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#ffffffff"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Prix Moyen"
+            android:inputType="textPersonName|number"
+            android:textColor="#ffffffff"
+            android:textColorHint="#ffffffff"
+            android:layout_below="@+id/QualiteService"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/qCote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/PrixMoyen"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Cote General"
+            android:textColor="#ffffffff"
+            android:textSize="18sp" />
+
+        <RatingBar
+            android:id="@+id/cote"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/qCote"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#ffffffff"
+            android:gravity="center"
+            android:hint="Qualité du Service"
+            android:numStars="5"
+            android:rating="0"
+            android:textColor="#ffffffff"
+            android:textColorHint="#ffffffff"
+            android:theme="@style/RatingBar"/>
+
+
+        <Button
+            android:id="@+id/modButmodBut"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cote"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button"
+            android:text="Modifier"
+            android:textColor="#ffffffff" />
+
+    </RelativeLayout>
+
+</android.widget.RelativeLayout>
