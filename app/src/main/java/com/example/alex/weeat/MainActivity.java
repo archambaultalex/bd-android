@@ -110,18 +110,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void openParam()
     {
-        Cursor c = bd.rawQuery("SELECT * FROM Restaurants", null);
-        if (c.moveToFirst()){
-            do {
-                // Passing values
-                String column1 = c.getString(0);
-                String column2 = c.getString(1);
-                String column3 = c.getString(2);
-                // Do something Here with value
-                ShowToast(c.getString(0)+" "+c.getString(1)+" "+c.getString(2)+" "+c.getString(3)+" "+c.getString(4)+" "+c.getString(5)+" "+c.getString(6));
-            } while(c.moveToNext());
-        }
-        c.close();
+        Intent myIntent = new Intent(MainActivity.this, empty_db.class);
+        MainActivity.this.startActivity(myIntent);
     }
 
     public void ShowToast(CharSequence text)

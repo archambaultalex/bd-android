@@ -79,7 +79,7 @@
             android:layout_below="@id/modif"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:text="Ajouter une évaluation" />
+            android:text="Afficher Resto" />
 
 
     </RelativeLayout>
