@@ -34,7 +34,7 @@ public class ReadSelonEtoiles extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(Integer.parseInt(id.getText().toString()) >= 0 && Integer.parseInt(id.getText().toString()) <= 5) {
+                if(!id.getText().toString().trim().isEmpty() && Integer.parseInt(id.getText().toString()) >= 0 && Integer.parseInt(id.getText().toString()) <= 5 ) {
                     TableLayout tl = (TableLayout) findViewById(R.id.tableResto);
                     int count = tl.getChildCount();
                     for (int i = 0; i < count; i++) {

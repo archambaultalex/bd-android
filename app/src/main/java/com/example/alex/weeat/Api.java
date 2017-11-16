@@ -18,7 +18,7 @@ public class Api {
     {
         try {
 
-            bd.execSQL("INSERT INTO Restaurants VALUES(null,'"+nom+"','"+adresse+"',"+ qualiteBouffe+","+qualiteService+","+prixMoyen+","+cote+")");
+            bd.execSQL("INSERT INTO Restaurants VALUES(null,'"+nom+"','"+adresse+"','"+ qualiteBouffe+"','"+qualiteService+"',"+prixMoyen+","+cote+")");
 
         } catch (SQLiteConstraintException e) {
 
@@ -64,11 +64,11 @@ public class Api {
         }
     }
 
-    public  void Update(SQLiteDatabase bd , int id, float cote, float qualiteService, float qualiteBouffe,int prixmoy)
+    public  void Update(SQLiteDatabase bd , int id, float cote, String qualiteService, String qualiteBouffe,int prixmoy)
     {
         try {
 
-            bd.execSQL("UPDATE Restaurants SET Cote = "+ cote + ", qualiteService = "+ qualiteService + ", qualiteBouffe = "+ qualiteBouffe + ", prixMoyen ="+ prixmoy + " WHERE Id = "+ id +";");
+            bd.execSQL("UPDATE Restaurants SET Cote = "+ cote + ", qualiteService = '"+ qualiteService + "', qualiteBouffe = '"+ qualiteBouffe + "', prixMoyen ="+ prixmoy + " WHERE Id = "+ id +";");
 
         } catch (SQLiteConstraintException e) {
 

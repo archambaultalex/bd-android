@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public class Modify_restaurant extends AppCompatActivity {
 
     public static Spinner spinner;
     public static EditText prixmoy;
-    public static RatingBar qbouf;
-    public static RatingBar qService;
+    public static Spinner qbouf;
+    public static Spinner qService;
     public static RatingBar cote;
 
     public static Button Modifier;
@@ -38,26 +39,70 @@ public class Modify_restaurant extends AppCompatActivity {
         context = getApplicationContext();
 
         prixmoy = (EditText) findViewById(R.id.PrixMoyen);
-        qbouf = (RatingBar) findViewById(R.id.QualiteBouffe);
-        qService = (RatingBar) findViewById(R.id.QualiteService);
+        qbouf = (Spinner) findViewById(R.id.QualiteBouffe);
+        qService = (Spinner) findViewById(R.id.QualiteService);
         cote = (RatingBar) findViewById(R.id.cote);
         Modifier = (Button) findViewById(R.id.modButmodBut);
+        spinner = (Spinner) findViewById(R.id.spinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.cote, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        qbouf.setAdapter(adapter);
+        qService.setAdapter(adapter);
+
+        qbouf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) view).setTextColor(getResources().getColor(R.color.white)); //Change selected text color
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        qService.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) view).setTextColor(getResources().getColor(R.color.white)); //Change selected text color
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         Modifier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Api api = new Api();
-                api.Update(MainActivity.bd,id,cote.getNumStars(),qService.getNumStars(),qbouf.getNumStars(),Integer.parseInt(prixmoy.getText().toString()));
+                api.Update(MainActivity.bd,id,cote.getNumStars(),qService.getSelectedItem().toString(),qbouf.getSelectedItem().toString(),Integer.parseInt(prixmoy.getText().toString()));
                 Toast.makeText(context, "Restaurant modifier", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
 
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) view).setTextColor(getResources().getColor(R.color.white)); //Change selected text color
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         Cursor cu = MainActivity.bd.rawQuery("select Nom from Restaurants",null);
         if(cu.getCount() == 0)
         {
-
+            Toast.makeText(context,"Il n'y a pas de resto",Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -67,7 +112,7 @@ public class Modify_restaurant extends AppCompatActivity {
             }
         }
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+
 
 
         ArrayAdapter aa = new ArrayAdapter(this,R.layout.spinner_item, resto);
@@ -87,8 +132,19 @@ public class Modify_restaurant extends AppCompatActivity {
                     while(cu.moveToNext())
                     {
                         Modify_restaurant.id = Integer.parseInt(cu.getString(0));
-                        qbouf.setRating(Float.parseFloat(cu.getString(3)));
-                        qService.setRating(Float.parseFloat(cu.getString(4)));
+                        for(int i = 0; i < 5; i++)
+                        {
+                            String temp = qbouf.getItemAtPosition(i).toString();
+                            if(qbouf.getItemAtPosition(i).toString().contains(cu.getString(3)))
+                            {
+                                qbouf.setSelection(i);
+                            }
+
+                            if(qService.getItemAtPosition(i).toString().contains(cu.getString(4)))
+                            {
+                                qService.setSelection(i);
+                            }
+                        }
                         prixmoy.setText(cu.getString(5));
                         cote.setRating(Float.parseFloat(cu.getString(6)));
                     }

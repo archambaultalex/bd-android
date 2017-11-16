@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">WeEat</string>
+
+    <string-array name="cote">
+        <item>Excellent</item>
+        <item>Bien</item>
+        <item>Moyen</item>
+        <item>Médiocre</item>
+        <item>Horrible</item>
+    </string-array>
+
+
 </resources>

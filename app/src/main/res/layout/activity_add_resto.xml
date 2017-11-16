@@ -76,20 +76,14 @@
             android:textColor="#ffffffff"
             android:textSize="18sp" />
 
-        <RatingBar
+        <Spinner
             android:id="@+id/QualiteBouffe"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/qBouffe"
-            android:layout_centerHorizontal="true"
-            android:backgroundTint="#ffffffff"
-            android:ems="10"
             android:gravity="center"
-            android:hint="Qualité de la nourriture"
-            android:inputType="textPersonName"
-            android:textColor="#ffffffff"
-            android:textColorHint="#ffffffff"
-            android:theme="@style/RatingBar"/>
+            android:spinnerMode="dialog"
+            android:textColor="#ffffff" />
 
         <TextView
             android:id="@+id/qService"
@@ -102,20 +96,13 @@
             android:textColor="#ffffffff"
             android:textSize="18sp" />
 
-        <RatingBar
+        <Spinner
             android:id="@+id/QualiteService"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/qService"
-            android:layout_centerHorizontal="true"
-            android:backgroundTint="#ffffffff"
             android:gravity="center"
-            android:hint="Qualité du Service"
-            android:numStars="5"
-            android:rating="0"
-            android:textColor="#ffffffff"
-            android:textColorHint="#ffffffff"
-            android:theme="@style/RatingBar"/>
+            android:spinnerMode="dialog"/>
 
         <EditText
             android:id="@+id/PrixMoyen"
