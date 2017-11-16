@@ -79,10 +79,15 @@ public class Modify_restaurant extends AppCompatActivity {
         Modifier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Api api = new Api();
-                api.Update(MainActivity.bd,id,cote.getNumStars(),qService.getSelectedItem().toString(),qbouf.getSelectedItem().toString(),Integer.parseInt(prixmoy.getText().toString()));
-                Toast.makeText(context, "Restaurant modifier", Toast.LENGTH_SHORT).show();
-                finish();
+                if(!prixmoy.getText().toString().trim().isEmpty()) {
+                    Api api = new Api();
+                    api.Update(MainActivity.bd, id, cote.getRating(), qService.getSelectedItem().toString(), qbouf.getSelectedItem().toString(), Integer.parseInt(prixmoy.getText().toString()));
+                    Toast.makeText(context, "Restaurant modifier", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                else {
+                    Toast.makeText(context,"Tous les champs doivent etre remplies!",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -146,7 +151,7 @@ public class Modify_restaurant extends AppCompatActivity {
                             }
                         }
                         prixmoy.setText(cu.getString(5));
-                        cote.setRating(Float.parseFloat(cu.getString(6)));
+                        cote.setRating(Integer.parseInt(cu.getString(6)));
                     }
                 }
             }

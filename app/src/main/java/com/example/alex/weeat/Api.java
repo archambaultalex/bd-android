@@ -39,30 +39,6 @@ public class Api {
             Log.e("Delete", e.getMessage().toString());
         }
     }
-    public  void UpdateQualiteBouffe(SQLiteDatabase bd , int id , int qualiteBouffe)
-    {
-
-        try {
-
-            bd.execSQL("UPDATE Restaurants SET qualiteBouffe = "+ qualiteBouffe + " WHERE Id = "+ id +";");
-
-        } catch (SQLiteConstraintException e) {
-
-            Log.e("UpdateQualiteBouffe", e.getMessage().toString());
-        }
-    }
-    public  void UpdateQualiteService(SQLiteDatabase bd , int id ,int qualiteService)
-    {
-
-        try {
-
-            bd.execSQL("UPDATE Restaurants SET qualiteService = "+ qualiteService + " WHERE Id = "+ id +";");
-
-        } catch (SQLiteConstraintException e) {
-
-            Log.e("UpdateQualiteService", e.getMessage().toString());
-        }
-    }
 
     public  void Update(SQLiteDatabase bd , int id, float cote, String qualiteService, String qualiteBouffe,int prixmoy)
     {
